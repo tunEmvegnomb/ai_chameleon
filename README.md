@@ -1,4 +1,4 @@
-# teamf4_mlp
+# Introduction
 내일배움캠프 팀 f4의 머신러닝 프로젝트 저장소입니다.
 
 Welcome to the teamf4_mlp wiki!
