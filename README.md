@@ -22,4 +22,4 @@ Welcome to the teamf4_mlp wiki!
 - 지정된 여러 개의 색 팔레트 이미지를 모두 출력하여 gif로 생성
 - 사진을 다운로드할 수 있다!
 
-# 
+김희정
