@@ -1,4 +1,10 @@
 from flask import Flask
+from pymongo import MongoClient
+
+
+client = MongoClient('localhost', 27017)
+db = client.campProject
+
 
 app = Flask(__name__)
 
