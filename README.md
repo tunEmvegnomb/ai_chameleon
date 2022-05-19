@@ -24,3 +24,4 @@ Welcome to the teamf4_mlp wiki!
 
 
 김희정
+황영상
