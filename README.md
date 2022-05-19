@@ -27,3 +27,6 @@ Welcome to the teamf4_mlp wiki!
 황영상
 김태인
 한예슬
+대박
+짱짱
+야호
