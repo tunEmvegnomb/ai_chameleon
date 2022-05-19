@@ -25,3 +25,5 @@ Welcome to the teamf4_mlp wiki!
 
 김희정
 황영상
+김태인
+한예슬
