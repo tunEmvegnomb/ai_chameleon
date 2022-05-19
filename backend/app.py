@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 
 client = MongoClient('localhost', 27017)
-db = client.campProject
+db = clien123123t.campProject
 
 
 app = Flask(__name__)
