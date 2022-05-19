@@ -3,8 +3,8 @@ from pymongo import MongoClient
 
 
 client = MongoClient('localhost', 27017)
-db = clien123123t.campProject
-안녕하세요
+db = client.campProject
+
 
 app = Flask(__name__)
 
