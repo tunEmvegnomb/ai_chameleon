@@ -25,4 +25,4 @@ gif = [
 ]
 
 db.gif.insert_one(gif)
-print('gif 데이터베이스 삽입중')
+print('gif 데이터베이스 삽입중123')
