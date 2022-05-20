@@ -1,5 +1,7 @@
+import os
 import torch
 import torchvision
+import datetime
 from torchvision import models
 import torchvision.transforms as T
 import numpy as np
@@ -7,6 +9,8 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 from sklearn.utils import shuffle
+
+from datetime import date, datetime, timedelta
 
 
 IMG_SIZE = 480
@@ -80,14 +84,20 @@ def seg_map(img, color):  # 이미지로 되돌리는 과정
     return rgb
 
 
+# 이미지 출력 저장
 img_list = []
+current_time = datetime.now().strftime('%Y%m%d%H%M%S')
+print(current_time)
+n = 1
 
 for i in pallete:
-
     img_out = seg_map(out, i)
 
     img_list.append(img_out)
 
     fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(16, 16))
+    ax[0].imshow(img)
     ax[1].imshow(img_out)
-    plt.show()
+    im = Image.fromarray(img_out)  # 이미지를 실제 이미지 형태로 저장
+    im.save(f'frontend/static/img/semented_img/{current_time}({n}).jpg')
+    n = n+1
