@@ -1,5 +1,6 @@
 from flask import Flask, request
 from pymongo import MongoClient
+from werkzeug.utils import secure_filename
 
 
 client = MongoClient('localhost', 27017)
@@ -44,9 +45,15 @@ def load_image():
 @app.route('/saveselfie', methods=['POST'])
 def save_selfie():
     # -- Request --
-    # file_receive = request.form
-    print(request.files)
+    file_receive = request.files['file']
+    # print(request.files['file'])
+    print(f'받아온 파일은 {request.files}')
 
+    filename = secure_filename(file_receive.filename)
+    print(f'filename {filename}')
+
+
+    # extension = 
 
 
     # -- API Progress --
