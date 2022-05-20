@@ -10,10 +10,8 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def home()
-
-
-return 123
+def home():
+    return 123
 
 
 # --- gif 이미지를 결과페이지에 출력하는 API ---
