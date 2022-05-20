@@ -13,25 +13,25 @@ IMG_SIZE = 480
 
 color = [
     (0, 0, 0),       # 0=background*
-    (128, 0, 0),     # 1=aeroplane
-    (0, 128, 0),     # 2=bicycle*
-    (128, 128, 0),   # 3=bird
+    (124,92,168),     # 1=aeroplane
+    (84,216,192),     # 2=bicycle*
+    (236,242,163),   # 3=bird
     (0, 0, 128),     # 4=boat
-    (128, 0, 128),   # 5=bottle
-    (0, 128, 128),   # 6=bus*
-    (128, 128, 128), # 7=car*
+    (84,216,192),   # 5=bottle
+    (69,66,193),   # 6=bus*
+    (248,110,127), # 7=car*
     (255, 255, 255), # 8=cat*
-    (192, 0, 0),     # 9=chair*
-    (64, 128, 0),    # 10=cow
-    (192, 128, 0),   # 11=dining table*
-    (64, 0, 128),    # 12=dog*
-    (192, 0, 128),   # 13=horse
-    (64, 128, 128),  # 14=motorbike*
-    (192, 128, 128), # 15=person*
-    (0, 64, 0),      # 16=potted plant*
-    (128, 64, 0),    # 17=sheep
-    (0, 192, 0),     # 18=sofa*
-    (128, 192, 0),   # 19=train
+    (221,209,238),     # 9=chair*
+    (236,242,163),    # 10=cow
+    (14,26,99),   # 11=dining table*
+    (188,245,101),    # 12=dog*
+    (34,252,250),   # 13=horse
+    (56,141,250),  # 14=motorbike*
+    (249,134,202), # 15=person*
+    (199,176,255),      # 16=potted plant*
+    (212,80, 183),    # 17=sheep
+    (212,80, 95),     # 18=sofa*
+    (250,235,215),   # 19=train
     (0, 64, 128)     # 20=tv/monitor*
 ]
 
@@ -85,6 +85,5 @@ for i in pallete:
   img_list.append(img_out)
 
   fig, ax =plt.subplots(nrows=1, ncols=2, figsize=(16,16))
-  ax[0].imshow(img)
   ax[1].imshow(img_out)
   plt.show()
