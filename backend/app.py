@@ -49,18 +49,24 @@ def save_selfie():
     file_receive = request.files['file']
     print(f'받아온 파일은 {request.files}')
 
-    filename = secure_filename(file_receive.filename)
-    print(f'filename {filename}')
+     # -- API Progress --
+    rawname = secure_filename(file_receive.filename)
+    print(f'filename {rawname}')
 
-    extension = filename.split('.')[-1]
+    extension = rawname.split('.')[-1]
+    timestamp = datetime.now()
+    filename = f"{timestamp.strftime('%Y-%m-%d_%H:%M:%S')}.{extension}"
+    save_to = f'img/selfie/{filename}'
+    file_receive.save(save_to)   
 
+    doc_selfie = {
+        'name_selfie' : filename,
+    }
 
-
-    # -- API Progress --
+    db.selfie.insert_one(doc_selfie)
 
     # -- Response --
-
-    return 'hello'
+    return save_to
 
 
 if __name__ == '__main__':
