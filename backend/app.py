@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from pymongo import MongoClient
 
 
@@ -16,7 +16,7 @@ def home():
 # --- gif 이미지를 결과페이지에 출력하는 API ---
 
 
-recent_selfie_id = str(db.selfie.find_one()['_id'])
+# recent_selfie_id = str(db.selfie.find_one()['_id'])
 
 
 @app.route('/loadimage', methods=['GET'])
@@ -38,6 +38,22 @@ def load_image():
 # 2. 셀피 데이터베이스에서 recent_selfie_id값을 정의해야함
 # 3. 셀피 데이터베이스를 활용하여 이미지 gif를 가지고 와야함
 # pass
+
+
+#   --- 셀피 업로드하기 ---
+@app.route('/saveselfie', methods=['POST'])
+def save_selfie():
+    # -- Request --
+    # file_receive = request.form
+    print(request.files)
+
+
+
+    # -- API Progress --
+
+    # -- Response --
+
+    return 'hello'
 
 
 if __name__ == '__main__':
