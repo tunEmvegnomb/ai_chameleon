@@ -47,27 +47,31 @@ def load_image():
 @app.route('/saveselfie', methods=['POST'])
 def save_selfie():
     # -- Request --
-    file_receive = request.files['file']
+    file_receive = request.files['file_give']
     print(f'받아온 파일은 {request.files}')
 
      # -- API Progress --
-    rawname = secure_filename(file_receive.filename)
-    print(f'filename {rawname}')
-
-    extension = rawname.split('.')[-1]
-    timestamp = datetime.now()
-    filename = f"{timestamp.strftime('%Y-%m-%d_%H:%M:%S')}.{extension}"
-    save_to = f'img/selfie/{filename}'
+    extension = file_receive.filename.split('.')[-1]
+    print(f'extension {extension}')
+    
+    time_now = datetime.now()
+    timestamp = f"{time_now.strftime('%Y%m%d_%H%M%S')}"
+    filename = f'{timestamp}.{extension}'
+    print(f'filename : {filename}')
+    
+    save_to = f'backend/static/selfie/{filename}'
     file_receive.save(save_to)   
 
     doc_selfie = {
-        'name_selfie' : filename,
+        'name_selfie' : filename
     }
 
     db.selfie.insert_one(doc_selfie)
 
-    # -- Response --
+    # # -- Response --
     return save_to
+
+    
 
 
 if __name__ == '__main__':
