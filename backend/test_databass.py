@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 client = MongoClient('localhost', 27017)
-db = client.teamf4
+db = client.chameleon
 
 selfie = [
     {
