@@ -3,17 +3,22 @@ from pymongo import MongoClient
 
 
 client = MongoClient('localhost', 27017)
-db = clien123123t.campProject
-안녕하세요
+db = client.chameleon
+
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def home()
+def home():
+    return 123
 
 
-return 123
+# --- gif 이미지를 결과페이지에 출력하는 API ---
+@app.route('/loadimage', methods=['GET'])
+def load_image():
+    # -- 로직과 의사코드를 주석으로 달아보세요 --
+    pass
 
 
 if __name__ == '__main__':
