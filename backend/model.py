@@ -93,14 +93,13 @@ n = 1
 
 
 for i in pallete:
-    img_out = seg_map(out, i)
+  img_out = seg_map(out, i)
 
-    img_list.append(img_out)
+  img_list.append(img_out)
 
-    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(16, 16))
-    ax[0].imshow(img)
-    ax[1].imshow(img_out)
+  fig, ax =plt.subplots(nrows=1, ncols=2, figsize=(16,16))
+  ax[0].imshow(img)
+  ax[1].imshow(img_out)
 
-    img_list.append(img_out)
-imageio.mimsave(
-    f"frontend/static/img/semented_img/{current_time}.gif", img_list, fps=3)
+  img_list.append(img_out)
+imageio.mimsave(f"frontend/static/img/semented_img/{current_time}.gif", img_list,fps=3)
