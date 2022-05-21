@@ -1,0 +1,190 @@
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    background: rgba(0, 79, 255, 0.9);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 79, 255, 0.6);
+}
+
+
+
+
+/*===================1.MAIN PAGE====================*/
+/*==============================================*/
+.page1 {
+    width: 100%;
+    height: 1000p;
+    background-image: url("static/img/japan-2014616_960_720.jpg");
+    background-size: cover;
+}
+
+/*===================NAVBAR START====================*/
+.nav {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    justify-content: space-between;
+    display: flex;
+
+}
+
+.logout_button {
+    border-radius: 3px;
+    background-image: -webkit-linear-gradient(0deg, #000000 0%, #88f3ff 100%);
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border: none;
+    color: white;
+}
+
+.logo {
+    margin: 10px;
+}
+
+/*===================NAVBAR END====================*/
+/*================PAGE TOP START===================*/
+.page_top {
+    /* background-color: gray; */
+    width: auto;
+    height: 700px;
+
+}
+
+.card1 {
+    width: 470px;
+    height: 530px;
+    background-color: transparent;
+    position: absolute;
+    left: 50%;
+    margin: 40px 0 0 -350px;
+    border-radius: 8px;
+
+}
+
+.card1 div {
+    position: relative;
+}
+
+.word_box_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+.word_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    border: 2px red solid;
+    margin: 50px;
+}
+
+.word_box h1 {
+    font-size: 3.5em;
+    padding-bottom: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+/*================PAGE TOP END===================*/
+/*================PAGE BOTTOM START================*/
+.page_bottom {
+    background-color: rgb(30, 19, 34);
+    width: auto;
+    height: 800px;
+
+}
+
+.card2 {
+    width: 470px;
+    height: 540px;
+    background-color: rgb(185, 185, 187);
+    position: absolute;
+    top: 170%;
+    left: 50%;
+    margin: -270px 0 0 -350px;
+    border-radius: 8px;
+
+}
+
+.inner_card {
+    width: 430px;
+    height: 450px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin: 10px 0 10px 20px;
+}
+
+.inner_card i {
+    font-size: 5em;
+}
+
+/* .inner_card:nth-child(2) {
+    color: pink;
+    top: 50%;
+} */
+/*================PAGE BOTTOM END================*/
+
+
+/*===================2.RESULT PAGE====================*/
+
+.card3 {
+    width: 470px;
+    height: 540px;
+    background-color: rgb(79, 79, 172);
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    border-radius: 8px;
+
+}
+
+.card4 {
+    width: 470px;
+    height: 540px;
+    background-color: rgb(79, 79, 172);
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    border-radius: 8px;
+}
+
+.crd4_top {
+    width: 430px;
+    height: 200px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin: 50px 0 0 20px;
+}
+
+.crd4_bottom {
+    width: 100px;
+    height: 200px;
+    background-color: transparent;
+    border-radius: 5px;
+    margin: 50px 0 0 20px;
+}
+
+.download_button {
+
+    width: 300px;
+    height: 100px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin: 50px 0 0 70px;
+    border: none;
+    font-size: large;
+    /* box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
+    transition: 0.3s;
+    transform: translate(-50%, -50%);
+    font-size: 3em; */
+}

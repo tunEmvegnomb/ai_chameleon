@@ -5,18 +5,11 @@ from datetime import datetime, timedelta
 import os
 
 
-client = MongoClient('localhost', 27017)
-db = client.chameleon
-
-
 app = Flask(__name__)
 
 
 @app.route('/')
-def home():
-    return 123
-
-# --- gif 이미지를 결과페이지에 출력하는 API ---
+def home()
 
 
 # recent_selfie_id = str(db.selfie.find_one()['_id'])
@@ -50,28 +43,26 @@ def save_selfie():
     file_receive = request.files['file_give']
     print(f'받아온 파일은 {request.files}')
 
-     # -- API Progress --
+    # -- API Progress --
     extension = file_receive.filename.split('.')[-1]
     print(f'extension {extension}')
-    
+
     time_now = datetime.now()
     timestamp = f"{time_now.strftime('%Y%m%d_%H%M%S')}"
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
-    
+
     save_to = f'backend/static/selfie/{filename}'
-    file_receive.save(save_to)   
+    file_receive.save(save_to)
 
     doc_selfie = {
-        'name_selfie' : filename
+        'name_selfie': filename
     }
 
     db.selfie.insert_one(doc_selfie)
 
     # # -- Response --
     return save_to
-
-    
 
 
 if __name__ == '__main__':
