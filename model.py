@@ -50,7 +50,7 @@ def make_gif(filename):
 
     deeplab = models.segmentation.deeplabv3_resnet101(pretrained=True).eval()
 
-    img = Image.open(f'frontend/static/img/{filename}')
+    img = Image.open(f'static/image/selfie/{filename}')
     plt.figure(figsize=(4, 4))
     plt.imshow(img)
     print(img)
