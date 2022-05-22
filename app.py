@@ -15,6 +15,8 @@ cors = CORS(app, resources={r"*": {"origins": "*"}})
 client = MongoClient('localhost', 27017)
 db = client.chameleon
 
+recent_selfie_id = None
+
 
 @app.route('/')
 def home():
@@ -33,14 +35,14 @@ def result_page():
 def load_image():
     # -- 로직과 의사코드를 주석으로 달아보세요 --
     global recent_selfie_id
-    print(f'이것은 리센트 아이디 값입니다 {recent_selfie_id}')
+    print(f'최근 아이디 값은 : {recent_selfie_id}')
     gif_selfie_id = db.gif.find_one(
         {'selfie_id': recent_selfie_id})['selfie_id']
     print(f'이것은 셀피 아이디 값입니다 {gif_selfie_id}')
     if gif_selfie_id == recent_selfie_id:
         find_gif = db.gif.find_one()['name_gif']
 
-        return find_gif
+        return jsonify({'find_gif': find_gif}, recent_selfie_id)
 
     # print(gif_selfie_id)
 # load_image(recent_selfie_id)
@@ -53,9 +55,9 @@ def load_image():
 #   --- 셀피 업로드하기 ---
 @app.route('/saveselfie', methods=['POST'])
 def save_selfie():
-    print('업로드로 들어오긴 합니까?')
-    print(request)
-    print(f'헤더에 오리진 들어옴? {request.headers}')
+    # print('업로드로 들어오긴 합니까?')
+    # print(request)
+    # print(f'헤더에 오리진 들어옴? {request.headers}')
     # -- Request --
     file_receive = request.files['file_give']
     print(f'받아온 파일은 {request.files}')
@@ -69,7 +71,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'static/image/{filename}'
+    save_to = f'static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -77,14 +79,42 @@ def save_selfie():
     }
 
     db.selfie.insert_one(doc_selfie)
-    model.make_gif(filename)
+
+    global recent_selfie_id
+    recent_selfie_id = str(db.selfie.find_one(
+        {'name_selfie': filename})['_id'])
+    print(f'최근 아이디 값은 : {recent_selfie_id}')
 
     # # -- Response --
-    return save_to
+    return jsonify({'save_to': save_to, 'recent_selfie_id': recent_selfie_id, 'filename': filename})
+    # return redirect(url_for('save_gif')), recent_selfie_id, filename
+
+
+@app.route('/savegif', methods=['POST'])
+def save_gif():
+    # --- Request ---
+    filename = request.form['filename']
+    recent_selfie_id = request.form['recent_selfie_id']
+    print(f'filename : {filename}')
+    print(f'recent_id : {recent_selfie_id}')
+    # --- Progress ---
+    current_time = model.make_gif(filename)
+
+    gif_doc = {
+        'selfie_id': recent_selfie_id,
+        'name_gif': current_time
+    }
+    db.gif.insert_one(gif_doc)
+    print('gif 데이터베이스 삽입')
+    # --- Response ---
+
+    return jsonify({'msg': 'gif를 저장했습니다!'})
+
 
 @app.route('/result', methods=['GET'])
 def load_result():
     return render_template('result.html')
+
 
 if __name__ == '__main__':
     app.run('127.0.0.1', port=5000, debug=True)
