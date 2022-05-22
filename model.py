@@ -49,7 +49,7 @@ for i in range(4):
 
 deeplab = models.segmentation.deeplabv3_resnet101(pretrained=True).eval()
 
-img = Image.open('frontend/static/img/03.jpg')
+img = Image.open('frontend/static/img/youngsang.jpg')
 plt.figure(figsize=(4, 4))
 plt.imshow(img)
 print(img)
@@ -93,13 +93,15 @@ n = 1
 
 
 for i in pallete:
-  img_out = seg_map(out, i)
+    img_out = seg_map(out, i)
 
-  img_list.append(img_out)
+    img_list.append(img_out)
 
-  fig, ax =plt.subplots(nrows=1, ncols=2, figsize=(16,16))
-  ax[0].imshow(img)
-  ax[1].imshow(img_out)
+    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(16, 16))
+    ax[0].imshow(img)
+    ax[1].imshow(img_out)
 
-  img_list.append(img_out)
-imageio.mimsave(f"frontend/static/img/semented_img/{current_time}.gif", img_list,fps=3)
+    img_list.append(img_out)
+
+imageio.mimsave(
+    f"frontend/static/img/segmented_img/{current_time}.gif", img_list, fps=3)
