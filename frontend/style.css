@@ -177,6 +177,7 @@ form>label {
     color: #F8019D;
     font-weight: bold;
     font-size: 30px;
+    text-shadow: 2px 0 black;
 }
 
 .inner_card,
