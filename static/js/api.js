@@ -29,8 +29,8 @@ async function uploadSelfie() {
         processData: false,
         success: function (response) {
             console.log(response)
-            
-
+            alert('결과 페이지로 이동합니다')
+            window.location.replace("/result")
         }
     });
 
