@@ -47,7 +47,8 @@
                 <i class="fa fa-images"></i>
                 <!-- <h3>이미지를 드래그해 넣어주세요</h3> -->
                 <form method="post" enctype="multipart/form-data">
-                    <input id="file" type="file" style="display: none;" accept="image/*" onchange="uploadSelfie()">
+                    <input id="file" type="file" style="display: none;" accept="image/*"
+                        onchange="uploadSelfie(this.File)">
                     <label for="file" class="upload_button">Drag&Drop or JUST CLICK</label>
                 </form>
 
