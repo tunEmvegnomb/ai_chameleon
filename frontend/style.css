@@ -165,3 +165,25 @@ button:hover {
     top: 50%;
 } */
 /*================PAGE BOTTOM END================*/
+
+form {
+    width: 100px;
+    height: 100px
+}
+
+form>label {
+    width: 400px;
+    height: 300px;
+    color: #F8019D;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.inner_card,
+form,
+form>label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
