@@ -56,9 +56,9 @@ def load_image():
 #   --- 셀피 업로드하기 ---
 @app.route('/saveselfie', methods=['POST'])
 def save_selfie():
-    print('업로드로 들어오긴 합니까?')
-    print(request)
-    print(f'헤더에 오리진 들어옴? {request.headers}')
+    # print('업로드로 들어오긴 합니까?')
+    # print(request)
+    # print(f'헤더에 오리진 들어옴? {request.headers}')
     # -- Request --
     file_receive = request.files['file_give']
     print(f'받아온 파일은 {request.files}')
@@ -87,14 +87,17 @@ def save_selfie():
     print(f'최근 아이디 값은 : {recent_selfie_id}')
 
     # # -- Response --
-    # return jsonify({'save_to': save_to}, recent_selfie_id, filename)
-    return redirect(url_for('save_gif')), recent_selfie_id, filename
+    return jsonify({'save_to': save_to, 'recent_selfie_id': recent_selfie_id, 'filename': filename})
+    # return redirect(url_for('save_gif')), recent_selfie_id, filename
 
 
 @app.route('/savegif', methods=['POST'])
-def save_gif(filename, recent_selfie_id):
+def save_gif():
     # --- Request ---
-
+    filename = request.form['filename']
+    recent_selfie_id = request.form['recent_selfie_id']
+    print(f'filename : {filename}')
+    print(f'recent_id : {recent_selfie_id}')
     # --- Progress ---
     current_time = model.make_gif(filename)
 
