@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect, url_for
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
@@ -74,6 +74,9 @@ def save_selfie():
     # # -- Response --
     return save_to
 
+@app.route('/result', methods=['GET'])
+def load_result():
+    return render_template('result.html')
 
 if __name__ == '__main__':
     app.run('127.0.0.1', port=5000, debug=True)
