@@ -14,6 +14,7 @@ cors = CORS(app, resources={r"*": {"origins": "*"}})
 client = MongoClient('localhost',27017)
 db = client.chameleon
 
+recent_selfie_id = None
 
 @app.route('/')
 def home():
@@ -26,6 +27,7 @@ def home():
 def load_image():
     # -- 로직과 의사코드를 주석으로 달아보세요 --
     global recent_selfie_id
+    print(f'최근 아이디 값은 : {recent_selfie_id}')
     print(f'이것은 리센트 아이디 값입니다 {recent_selfie_id}')
     gif_selfie_id = db.gif.find_one(
         {'selfie_id': recent_selfie_id})['selfie_id']
@@ -33,7 +35,7 @@ def load_image():
     if gif_selfie_id == recent_selfie_id:
         find_gif = db.gif.find_one()['name_gif']
 
-        return find_gif
+        return jsonify({'find_gif': find_gif}, recent_selfie_id)
 
     # print(gif_selfie_id)
 # load_image(recent_selfie_id)
@@ -62,7 +64,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'static/image/{filename}'
+    save_to = f'static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -71,8 +73,13 @@ def save_selfie():
 
     db.selfie.insert_one(doc_selfie)
 
+    global recent_selfie_id
+    recent_selfie_id = str(db.selfie.find_one({'name_selfie': filename})['_id'])
+    print(f'최근 아이디 값은 : {recent_selfie_id}')
+
+
     # # -- Response --
-    return save_to
+    return jsonify ({'save_to': save_to}, recent_selfie_id)
 
 @app.route('/result', methods=['GET'])
 def load_result():
