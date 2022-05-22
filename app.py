@@ -17,6 +17,7 @@ db = client.chameleon
 
 recent_selfie_id = None
 
+
 @app.route('/')
 def home():
     return render_template('main.html')
@@ -79,19 +80,38 @@ def save_selfie():
     }
 
     db.selfie.insert_one(doc_selfie)
-    model.make_gif(filename)
 
     global recent_selfie_id
-    recent_selfie_id = str(db.selfie.find_one({'name_selfie': filename})['_id'])
+    recent_selfie_id = str(db.selfie.find_one(
+        {'name_selfie': filename})['_id'])
     print(f'최근 아이디 값은 : {recent_selfie_id}')
 
-
     # # -- Response --
-    return jsonify ({'save_to': save_to}, recent_selfie_id)
+    return jsonify({'save_to': save_to}, recent_selfie_id, filename)
+
+
+@app.route('/savegif', methods=['POST'])
+def save_gif(filename, recent_selfie_id):
+    # --- Request ---
+
+    # --- Progress ---
+    current_time = model.make_gif(filename)
+
+    gif_doc = {
+        'selfie_id': recent_selfie_id,
+        'name_gif': current_time
+    }
+    db.gif.insert_one(gif_doc)
+    print('gif 데이터베이스 삽입')
+    # --- Response ---
+
+    return jsonify({'msg': 'gif를 저장했습니다!'})
+
 
 @app.route('/result', methods=['GET'])
 def load_result():
     return render_template('result.html')
+
 
 if __name__ == '__main__':
     app.run('127.0.0.1', port=5000, debug=True)
