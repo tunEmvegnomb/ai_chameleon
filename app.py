@@ -1,16 +1,23 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import os
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"*": {"origins": "*"}})
+# CORS(app)
+
+
+client = MongoClient('localhost',27017)
+db = client.chameleon
 
 
 @app.route('/')
 def home():
-    return jsonify({'msg': 'success'})
+    return render_template('main.html')
 
 # recent_selfie_id = str(db.selfie.find_one()['_id'])
 
@@ -39,6 +46,9 @@ def load_image():
 #   --- 셀피 업로드하기 ---
 @app.route('/saveselfie', methods=['POST'])
 def save_selfie():
+    print('업로드로 들어오긴 합니까?')
+    print(request)
+    print(f'헤더에 오리진 들어옴? {request.headers}')
     # -- Request --
     file_receive = request.files['file_give']
     print(f'받아온 파일은 {request.files}')
@@ -52,7 +62,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'backend/static/selfie/{filename}'
+    save_to = f'static/image/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -66,4 +76,5 @@ def save_selfie():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('127.0.0.1', port=5000, debug=True)
+    
