@@ -87,7 +87,8 @@ def save_selfie():
     print(f'최근 아이디 값은 : {recent_selfie_id}')
 
     # # -- Response --
-    return jsonify({'save_to': save_to}, recent_selfie_id, filename)
+    # return jsonify({'save_to': save_to}, recent_selfie_id, filename)
+    return redirect(url_for('save_gif')), recent_selfie_id, filename
 
 
 @app.route('/savegif', methods=['POST'])
