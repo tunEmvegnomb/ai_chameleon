@@ -36,7 +36,6 @@ def load_image():
     # -- 로직과 의사코드를 주석으로 달아보세요 --
     global recent_selfie_id
     print(f'최근 아이디 값은 : {recent_selfie_id}')
-    print(f'이것은 리센트 아이디 값입니다 {recent_selfie_id}')
     gif_selfie_id = db.gif.find_one(
         {'selfie_id': recent_selfie_id})['selfie_id']
     print(f'이것은 셀피 아이디 값입니다 {gif_selfie_id}')
