@@ -3,9 +3,14 @@ from pymongo import MongoClient
 from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import os
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"*": {"origins": "*"}})
+# CORS(app)
+
+client = MongoClient('localhost', 27017)
+db = client.chameleon
 
 
 @app.route('/')
@@ -39,9 +44,16 @@ def load_image():
 #   --- 셀피 업로드하기 ---
 @app.route('/saveselfie', methods=['POST'])
 def save_selfie():
+    # return jsonify({'result': 'success'})
     # -- Request --
+    data = request.headers
+    data2 = request.form
+    print(data)
+    print(data2)
+    file_receive = request.headers.get('Selfiedata')
+    print(f'리퀘스트 헤더 {file_receive}')
     file_receive = request.files['file_give']
-    print(f'받아온 파일은 {request.files}')
+    print(f'받아온 파일은 {file_receive}')
 
     # -- API Progress --
     extension = file_receive.filename.split('.')[-1]
@@ -52,7 +64,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'backend/static/selfie/{filename}'
+    save_to = f'static/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {

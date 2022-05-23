@@ -5,12 +5,13 @@ async function uploadSelfie() {
     console.log(selfieData)
 
     let form_data = new FormData()
+    form_data.enctype = "multipart/form-data"
     form_data.append("file_give", selfieData)
     console.log(form_data.get("file_give"))
 
     const response = await fetch('http://127.0.0.1:5000/saveselfie', {
         method: 'POST',
-        body: JSON.stringify(selfieData)
+        body: form_data,
     })
 
     console.log('셀피를 보내고 받아옵시다')
