@@ -12,7 +12,9 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 79, 255, 0.6);
 }
 
-
+body {
+    margin: 0;
+}
 
 
 /*===================1.MAIN PAGE====================*/
@@ -62,8 +64,8 @@ button:hover {
     height: 530px;
     background-color: transparent;
     position: absolute;
-    left: 50%;
-    margin: 40px 0 0 -350px;
+    left: 55%;
+    margin: 80px 0 0 -350px;
     border-radius: 8px;
     color: antiquewhite
 }
@@ -119,23 +121,29 @@ button:hover {
     position: absolute;
 
 
-    left: 50%;
+    left: 55%;
     margin: 300px 0 0 -350px;
 
 
 }
 
 .inner_card {
-    width: 430px;
-    height: 450px;
-    background-color: rgb(254, 243, 250);
+    width: 425px;
+    height: 500px;
+    /* background-color: rgb(254, 243, 250); */
     /* background-image: -moz-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
     background-image: -webkit-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
     background-image: -ms-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%); */
-    border: 2px #F8019D solid;
+    /* border: 2px #F8019D solid; */
     margin: 17px 0 10px 20px;
+<<<<<<< HEAD
 
 
+=======
+    background-image: url(../frontend/static/img/f4logo.png);
+    background-position: center;
+    background-size: cover;
+>>>>>>> main
 }
 
 .inner_card i {
