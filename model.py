@@ -50,7 +50,7 @@ def make_gif(filename):
 
     deeplab = models.segmentation.deeplabv3_resnet101(pretrained=True).eval()
 
-    img = Image.open(f'frontend/static/img/{filename}')
+    img = Image.open(f'static/image/selfie/{filename}')
     plt.figure(figsize=(4, 4))
     plt.imshow(img)
     print(img)
@@ -94,13 +94,13 @@ def make_gif(filename):
 
         img_list.append(img_out)
 
-        fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(16, 16))
-        ax[0].imshow(img)
-        ax[1].imshow(img_out)
+        # fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(16, 16))
+        # ax[0].imshow(img)
+        # ax[1].imshow(img_out)
 
         img_list.append(img_out)
 
     imageio.mimsave(
-        f"frontend/static/img/segmented_img/{current_time}.gif", img_list, fps=3)
+        f"static/image/segmented_img/{current_time}.gif", img_list, fps=3)
     f'segmented_img/{current_time}.gif'
     return current_time
