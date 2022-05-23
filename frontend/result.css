@@ -61,3 +61,17 @@ body {
     transform: translate(-50%, -50%);
     font-size: 3em; */
 }
+
+.inner_card3 {
+    width: 430px;
+    height: 450px;
+    background-color: rgb(254, 243, 250);
+    background-image: url("../backend/static/image/gif/20220523171354.gif");
+    background-size: cover;
+    /* background-image: -moz-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
+    background-image: -webkit-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
+    background-image: -ms-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%); */
+    border: 2px #F8019D solid;
+    margin: 17px 0 10px 20px;
+
+}

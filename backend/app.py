@@ -63,7 +63,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'static/image/selfie/{filename}'
+    save_to = f'backend/static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -108,6 +108,13 @@ def save_gif():
 
 @app.route('/result', methods=['GET'])
 def result_page():
+    print(current_time, "1")
+
+    return render_template('result.html', current_time=current_time)
+
+
+@app.route('/load_gif', methods=['GET'])
+def result_gif():
     print(current_time, "1")
 
     return render_template('result.html', current_time=current_time)

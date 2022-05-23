@@ -24,6 +24,7 @@ async function uploadSelfie() {
 }
 
 async function handleGif(filename, recent_selfie_id) {
+    alert("모델이 돌아가는 중입니다 10초만 대기해주세요")
     // request
     let form_data = new FormData()
     form_data.append("filename", filename)
@@ -37,6 +38,8 @@ async function handleGif(filename, recent_selfie_id) {
 
     // response
     console.log(response.json())
+
+    window.location.replace('http://127.0.0.1:5500/frontend/result.html')
 }
 
 
@@ -48,6 +51,7 @@ async function load_gif() {
     let response_json = await response.json()
     console.log(response_json)
 
+    // 의사코드 작성
     // 뿌려주기
     // 스테이터스 코드 활용 해서 작업
     // 얼러트, 리플레이스, 콘솔로그, temp_html appending
