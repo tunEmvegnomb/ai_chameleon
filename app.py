@@ -86,13 +86,15 @@ def save_selfie():
 
 @app.route('/savegif', methods=['POST'])
 def save_gif():
-    # --- Request ---
+   # --- Request ---
+    data = request.form
+    print(f'리퀘스트 폼 {data}')
     filename = request.form['filename']
+    print(f'savegif : filename : {filename}')
     recent_selfie_id = request.form['recent_selfie_id']
-    print(f'filename : {filename}')
-    print(f'recent_id : {recent_selfie_id}')
+    print(f'savegif : recent_id : {recent_selfie_id}')
     # --- Progress ---
-    global current_time
+    # global current_time
     current_time = model.make_gif(filename)
 
     gif_doc = {
