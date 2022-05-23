@@ -38,3 +38,17 @@ async function handleGif(filename, recent_selfie_id) {
     // response
     console.log(response.json())
 }
+
+
+async function load_gif() {
+
+    let response = await fetch('http://127.0.0.1:5000/loadgif', {
+        method: 'GET'
+    })
+    let response_json = await response.json()
+    console.log(response_json)
+
+    // 뿌려주기
+    // 스테이터스 코드 활용 해서 작업
+    // 얼러트, 리플레이스, 콘솔로그, temp_html appending
+}
