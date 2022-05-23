@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../static/css/result.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="../static/js/result.js"></script>
-    
+
 </head>
 
 <body>
@@ -35,11 +35,14 @@
                     그런것들을 위한 공간입니다.</p>
             </div>
             <div class="crd4_bottom">
-                <a href="../static/image/segmented_img/20220520154516.gif" download><button type="button"
+                <a href="../static/image/segmented_img/{{ current_time }}.gif" download><button type="button"
                         class="download_button">다운로드</button></a>
             </div>
         </div>
     </div>
+    <script>
+        console.log({{ current_time }})
+    </script>
 
 
 

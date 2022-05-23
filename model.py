@@ -86,7 +86,6 @@ def make_gif(filename):
     # 이미지 출력 저장
     img_list = []
     current_time = datetime.now().strftime('%Y%m%d%H%M%S')
-    print(current_time)
     n = 1
 
     for i in pallete:

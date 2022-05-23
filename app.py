@@ -25,12 +25,6 @@ def home():
 # recent_selfie_id = str(db.selfie.find_one()['_id'])
 
 
-@app.route('/result')
-def result_page():
-
-    return render_template('result.html')
-
-
 @app.route('/loadimage', methods=['GET'])
 def load_image():
     # -- 로직과 의사코드를 주석으로 달아보세요 --
@@ -98,6 +92,7 @@ def save_gif():
     print(f'filename : {filename}')
     print(f'recent_id : {recent_selfie_id}')
     # --- Progress ---
+    global current_time
     current_time = model.make_gif(filename)
 
     gif_doc = {
@@ -112,8 +107,10 @@ def save_gif():
 
 
 @app.route('/result', methods=['GET'])
-def load_result():
-    return render_template('result.html')
+def result_page():
+    print(current_time, "1")
+
+    return render_template('result.html', current_time=current_time)
 
 
 if __name__ == '__main__':
