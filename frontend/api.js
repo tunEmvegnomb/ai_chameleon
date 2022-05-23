@@ -1,6 +1,6 @@
 console.log('api script on load')
 
-async function uploadSelfie() {
+async function uploadSelfie(event) {
     const selfieData = document.getElementById("file").files[0]
     console.log(selfieData)
 
@@ -22,6 +22,8 @@ async function uploadSelfie() {
     const recent_selfie_id = response_json['recent_selfie_id']
     const label_upload = document.getElementById("upload_selfie")
     label_upload.style.display = "none"
+
+    await handleGif(filename, recent_selfie_id)
 }
 
 async function handleGif(filename, recent_selfie_id) {

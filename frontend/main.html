@@ -54,9 +54,12 @@
                 <!-- <h3>이미지를 드래그해 넣어주세요</h3> -->
             </div>
             <form method="post" enctype="multipart/form-data">
-                <input id="file" type="file" style="display: none;" accept="image/*" onchange="preview_selfie(this.File)">
-                <label id="upload_selfie" for="file" type="button" class="upload_button">Please Upload Your Selfie</label>
-                <button id="change_selfie" type="button" class="upload_button" style="display:none;">Change To GIF</label>
+                <input id="file" type="file" style="display: none;" accept="image/*"
+                    onchange="preview_selfie(this.File)">
+                <label id="upload_selfie" for="file" type="button" class="upload_button">Please Upload Your
+                    Selfie</label>
+                <button id="change_selfie" type="button" class="upload_button" style="display:none;"
+                    onclick="uploadSelfie()" onsubmit="false">Change To GIF</label>
             </form>
         </div>
     </div>
