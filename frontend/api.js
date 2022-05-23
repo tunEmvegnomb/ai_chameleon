@@ -17,5 +17,24 @@ async function uploadSelfie() {
     console.log('셀피를 보내고 받아옵시다')
     response_json = await response.json()
     console.log(response_json)
+    const filename = response_json['filename']
+    const recent_selfie_id = response_json['recent_selfie_id']
 
+    handleGif(filename, recent_selfie_id)
+}
+
+async function handleGif(filename, recent_selfie_id) {
+    // request
+    let form_data = new FormData()
+    form_data.append("filename", filename)
+    form_data.append("recent_selfie_id", recent_selfie_id)
+    console.log(form_data.get("filename"), form_data.get("recent_selfie_id"))
+    // ajax
+    const response = await fetch('http://127.0.0.1:5000/savegif', {
+        method: 'POST',
+        body: form_data
+    })
+
+    // response
+    console.log(response.json())
 }
