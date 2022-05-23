@@ -53,14 +53,14 @@ def load_image():
 
 
 #   --- 셀피 업로드하기 ---
-@app.route('/saveselfie', methods=['POST'])
+@app.route('/saveselfie', methods=["POST"])
 def save_selfie():
     # print('업로드로 들어오긴 합니까?')
     # print(request)
     # print(f'헤더에 오리진 들어옴? {request.headers}')
     # -- Request --
     file_receive = request.files['file_give']
-    print(f'받아온 파일은 {request.files}')
+    print(f'받아온 파일은 {file_receive}')
 
     # -- API Progress --
     extension = file_receive.filename.split('.')[-1]
@@ -94,19 +94,20 @@ def save_selfie():
 def save_gif():
     # --- Request ---
     filename = request.form['filename']
-    recent_selfie_id = request.form['recent_selfie_id']
-    print(f'filename : {filename}')
-    print(f'recent_id : {recent_selfie_id}')
-    # --- Progress ---
-    current_time = model.make_gif(filename)
+    # recent_selfie_id = request.form['recent_selfie_id']
+    # print(f'filename : {filename}')
+    # print(f'recent_id : {recent_selfie_id}')
+    # # --- Progress ---
+    # current_time = model.make_gif(filename)
+    # print(current_time)
 
-    gif_doc = {
-        'selfie_id': recent_selfie_id,
-        'name_gif': current_time
-    }
-    db.gif.insert_one(gif_doc)
-    print('gif 데이터베이스 삽입')
-    # --- Response ---
+    # gif_doc = {
+    #     'selfie_id': recent_selfie_id,
+    #     'name_gif': current_time
+    # }
+    # db.gif.insert_one(gif_doc)
+    # print('gif 데이터베이스 삽입')
+    # # --- Response ---
 
     return jsonify({'msg': 'gif를 저장했습니다!'})
 
