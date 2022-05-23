@@ -63,7 +63,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'backend/static/image/selfie/{filename}'
+    save_to = f'static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -94,6 +94,7 @@ def save_gif():
     # --- Progress ---
     global current_time
     current_time = model.make_gif(filename)
+    print(f'모델작동 {current_time}')
 
     gif_doc = {
         'selfie_id': recent_selfie_id,
@@ -103,21 +104,14 @@ def save_gif():
     print('gif 데이터베이스 삽입')
     # --- Response ---
 
-    return jsonify({'msg': 'gif를 저장했습니다!'})
+    return jsonify({'msg': 'gif를 저장했습니다!', 'current_time': current_time})
 
 
-@app.route('/result', methods=['GET'])
-def result_page():
-    print(current_time, "1")
-
-    return render_template('result.html', current_time=current_time)
-
-
-@app.route('/load_gif', methods=['GET'])
+@app.route('/loadgif', methods=['GET'])
 def result_gif():
     print(current_time, "1")
 
-    return render_template('result.html', current_time=current_time)
+    return jsonify({'current_time': current_time})
 
 
 if __name__ == '__main__':

@@ -48,7 +48,7 @@ def make_gif(filename):
 
     deeplab = models.segmentation.deeplabv3_resnet101(pretrained=True).eval()
 
-    img = Image.open(f'backend/static/image/selfie/{filename}').convert('RGB')
+    img = Image.open(f'static/image/selfie/{filename}').convert('RGB')
 
     trf = T.Compose([
         T.Resize(480),
@@ -86,6 +86,6 @@ def make_gif(filename):
         img_list.append(img_out)
     print("gif이전")
     imageio.mimsave(
-        f"backend/static/image/gif/{current_time}.gif", img_list, fps=3)
+        f"static/image/gif/{current_time}.gif", img_list, fps=3)
 
     return current_time

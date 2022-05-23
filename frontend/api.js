@@ -38,19 +38,24 @@ async function handleGif(filename, recent_selfie_id) {
 
     // response
     console.log(response.json())
-
+    // localStorage.setItem("current_time", response_json['current_time'])
     window.location.replace('http://127.0.0.1:5500/frontend/result.html')
 }
 
 
 async function load_gif() {
-
-    let response = await fetch('http://127.0.0.1:5000/loadgif', {
+    // let current_time = localStorage.current_time
+    // console.log(current_time)
+    let response = await fetch(`http://127.0.0.1:5000/loadgif?current_time`, {
         method: 'GET'
     })
     let response_json = await response.json()
-    console.log(response_json)
-
+    console.log('response 는 뭐냐면!!! ' + response_json)
+    let current_time = response_json['current_time']
+    let path = '../backend/static/image/gif/' + current_time + '.gif'
+    const inner_card = document.getElementById("inner_card")
+    console.log('inner card : ' + inner_card)
+    inner_card.style.backgroundImage = "url(" + path + ")"
     // 의사코드 작성
     // 뿌려주기
     // 스테이터스 코드 활용 해서 작업
