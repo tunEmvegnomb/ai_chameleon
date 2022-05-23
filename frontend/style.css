@@ -136,14 +136,9 @@ body {
     background-image: -ms-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%); */
     /* border: 2px #F8019D solid; */
     margin: 17px 0 10px 20px;
-<<<<<<< HEAD
-
-
-=======
     background-image: url(../frontend/static/img/f4logo.png);
     background-position: center;
     background-size: cover;
->>>>>>> main
 }
 
 .inner_card i {
