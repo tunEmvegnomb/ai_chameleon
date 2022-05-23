@@ -124,12 +124,15 @@ body {
     left: 55%;
     margin: 300px 0 0 -350px;
 
+    display: flex;
+    flex-direction: column;
+
 
 }
 
 .inner_card {
     width: 425px;
-    height: 500px;
+    height: 425px;
     /* background-color: rgb(254, 243, 250); */
     /* background-image: -moz-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
     background-image: -webkit-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
@@ -171,16 +174,18 @@ body {
 /*================PAGE BOTTOM END================*/
 
 form {
-    width: 100px;
+    width: 470px;
     height: 100px
 }
 
-form>label {
-    width: 400px;
-    height: 300px;
+.upload_button {
+    width: 430px;
+    height: 80px;
     color: #F8019D;
+    border: 1px solid #F8019D;
+    background-color: rgba(0,0,0,-1);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 31px;
     text-shadow: 2px 0 black;
 }
 

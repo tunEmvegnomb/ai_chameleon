@@ -63,7 +63,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'backend/static/image/selfie/{filename}'
+    save_to = f'static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {

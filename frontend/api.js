@@ -17,10 +17,11 @@ async function uploadSelfie() {
     console.log('셀피를 보내고 받아옵시다')
     response_json = await response.json()
     console.log(response_json)
+    alert('당신의 셀피는 저장되었습니다 ╰(*°▽°*)╯')
     const filename = response_json['filename']
     const recent_selfie_id = response_json['recent_selfie_id']
-
-    handleGif(filename, recent_selfie_id)
+    const label_upload = document.getElementById("upload_selfie")
+    label_upload.style.display = "none"
 }
 
 async function handleGif(filename, recent_selfie_id) {

@@ -52,16 +52,13 @@
             <div class="inner_card">
                 <i class="fa fa-images"></i>
                 <!-- <h3>이미지를 드래그해 넣어주세요</h3> -->
-                <form method="post" enctype="multipart/form-data">
-                    <input id="file" type="file" style="display: none;" accept="image/*"
-                        onchange="uploadSelfie(this.File)">
-                    <label for="file" class="upload_button">Drag&Drop or JUST CLICK</label>
-                </form>
-
             </div>
+            <form method="post" enctype="multipart/form-data">
+                <input id="file" type="file" style="display: none;" accept="image/*" onchange="preview_selfie(this.File)">
+                <label id="upload_selfie" for="file" type="button" class="upload_button">Please Upload Your Selfie</label>
+                <button id="change_selfie" type="button" class="upload_button" style="display:none;">Change To GIF</label>
+            </form>
         </div>
-
-
     </div>
 
 </body>
