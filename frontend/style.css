@@ -20,7 +20,7 @@ button:hover {
 .page1 {
     width: 100%;
     height: 1000p;
-    background-image: url("../image/japan-2014616_960_720.jpg");
+    background-image: url("static/img/japan-2014616_960_720.jpg");
     background-size: cover;
 }
 
