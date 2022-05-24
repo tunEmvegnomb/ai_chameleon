@@ -16,8 +16,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 def find_emotion(filename):
-    image = Image.open(
-        f'static/image/selfie/{filename}').convert("L")
+    image = Image.open(f'static/image/selfie/{filename}').convert("L")
     print(type(image))
     newsize = (48, 48)
     image = image.resize(newsize)
