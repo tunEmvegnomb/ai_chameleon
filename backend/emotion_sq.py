@@ -16,8 +16,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 def find_emotion(filename):
-    image = Image.open(
-        f'./backend/static/image/selfie/{filename}').convert("L")
+    image = Image.open(f'static/image/selfie/{filename}').convert("L")
     print(type(image))
     newsize = (48, 48)
     image = image.resize(newsize)
@@ -27,7 +26,7 @@ def find_emotion(filename):
 
     print(img.shape)
 
-    model = load_model('./backend/emotion_sq.h5')
+    model = load_model('emotion_sq.h5')
 
     # # 3. 모델 사용하기
     yhat = model.predict(img)
