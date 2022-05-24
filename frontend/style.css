@@ -2,6 +2,8 @@
     color: white;
 }
 
+@media screen and (width: 600px) {}
+
 button:focus {
     outline: 0;
 }
