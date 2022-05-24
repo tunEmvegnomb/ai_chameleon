@@ -17,6 +17,19 @@ body {
     top: 15%;
     left: 10%;
 
+    font-size: 0.5rem;
+    animation: pulsate 1.5s infinite alternate;
+    border: 0.2rem solid #fff;
+    border-radius: 1rem;
+    padding: 2.0em;
+    box-shadow: 0 0 .2rem #fff,
+        0 0 .2rem #fff,
+        0 0 2rem #bc13fe,
+        0 0 0.8rem #bc13fe,
+        0 0 2.8rem #bc13fe,
+        inset 0 0 1.3rem #bc13fe;
+
+
 
 }
 
@@ -28,6 +41,18 @@ body {
     position: absolute;
     top: 15%;
     right: 10%;
+
+    font-size: 0.5rem;
+    /* animation: pulsate 1.5s infinite alternate; */
+    border: 0.2rem solid #fff;
+    border-radius: 1rem;
+    padding: 2.0em;
+    box-shadow: 0 0 .2rem #fff,
+        0 0 .2rem #fff,
+        0 0 2rem #bc13fe,
+        0 0 0.8rem #bc13fe,
+        0 0 2.8rem #bc13fe,
+        inset 0 0 1.3rem #bc13fe;
 
 }
 
