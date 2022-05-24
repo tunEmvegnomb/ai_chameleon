@@ -66,17 +66,26 @@ async function load_gif() {
 
 
 async function select_music() {
+    console.log('셀렉트 뮤직 진입!!!!')
 
-
-    const response = await fetch('http://127.0.0.1:5500/emotion', {
+    let response = await fetch('http://127.0.0.1:5000/emotion', {
         method: 'GET'
     })
 
-    const response_json = response.json()
-    console.log('response_json : ' + response_json)
+    let response_json = await response.json()
+    console.log('감정인식 : ' + response_json)
 
     const emotional_music = response_json['music_index'] + '.mp3'
-    const music_path = '../backend/static/audio/' + emotional_music
-    const audioSourceResult = document.getElementById("audioSourceResult")
-    audioSourceResult.src = music_path
+    const music_path = '../frontend/audio/' + emotional_music
+
+    const audioSource = document.getElementById("audioSource")
+    audioSource.src = music_path
+
+    const musicSelect = document.getElementById("musicSelect")
+    musicSelect.style.display = "none"
+
+    const musicStart = document.getElementById("musicStart")
+    musicStart.style.display = "block"
+
+
 }
