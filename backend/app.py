@@ -17,6 +17,7 @@ db = client.chameleon
 
 recent_selfie_id = None
 
+
 @app.route('/')
 def home():
     return render_template('main.html')
@@ -70,7 +71,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'static/image/selfie/{filename}'
+    save_to = f'./backend/static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -81,7 +82,8 @@ def save_selfie():
     model.make_gif(filename)
 
     global recent_selfie_id
-    recent_selfie_id = str(db.selfie.find_one({'name_selfie': filename})['_id'])
+    recent_selfie_id = str(db.selfie.find_one(
+        {'name_selfie': filename})['_id'])
     print(f'최근 아이디 값은 : {recent_selfie_id}')
 
     # # -- Response --
