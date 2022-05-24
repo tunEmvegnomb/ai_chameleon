@@ -63,3 +63,20 @@ async function load_gif() {
     // 스테이터스 코드 활용 해서 작업
     // 얼러트, 리플레이스, 콘솔로그, temp_html appending
 }
+
+
+async function select_music() {
+
+
+    const response = await fetch('http://127.0.0.1:5500/emotion', {
+        method: 'GET'
+    })
+
+    const response_json = response.json()
+    console.log('response_json : ' + response_json)
+
+    const emotional_music = response_json['music_index'] + '.mp3'
+    const music_path = '../backend/static/audio/' + emotional_music
+    const audioSourceResult = document.getElementById("audioSourceResult")
+    audioSourceResult.src = music_path
+}

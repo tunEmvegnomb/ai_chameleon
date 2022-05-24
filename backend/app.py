@@ -124,5 +124,23 @@ def result_gif():
     return jsonify({'current_time': current_time})
 
 
+
+@app.route('/emotion', methods=['GET'])
+def load_emotion():
+    # -- 감정 인식 함수 호출 --
+    global filename
+    file = db.selfie.find_one({'name_selfie': filename})
+    result = emotion_sq.makeEmotion(file)
+    
+    # -- 리스트 형식의 감정을 담음 --
+    emotion = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+    
+    # -- result는 0~6 사이의 정수이므로 emotion list의 result를 대입해 감정을 빼낸다
+    music_index = emotion[result]
+    
+    return jsonify({'music_index': music_index})
+    
+    
+
 if __name__ == '__main__':
     app.run('127.0.0.1', port=5000, debug=True)
