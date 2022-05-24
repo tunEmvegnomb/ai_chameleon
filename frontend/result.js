@@ -1,10 +1,9 @@
 console.log('here is result')
 load_gif()
 
-select_music()
 
 function start_music() {
-    const audioContainer = document.querySelector('#audioontainer');
+    const audioContainer = document.querySelector('#audioContainer');
     audioContainer.loop = true
     audioContainer.play()
 }
