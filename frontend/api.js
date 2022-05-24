@@ -81,11 +81,11 @@ async function select_music() {
     const audioSource = document.getElementById("audioSource")
     audioSource.src = music_path
 
-    const musicSelect = document.getElementById("musicSelect")
-    musicSelect.style.display = "none"
+    // const musicSelect = document.getElementById("musicSelect")
+    // musicSelect.style.display = "none"
 
-    const musicStart = document.getElementById("musicStart")
-    musicStart.style.display = "block"
+    // const musicStart = document.getElementById("musicStart")
+    // musicStart.style.display = "block"
 
 
 }
