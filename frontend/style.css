@@ -201,6 +201,7 @@ form>label {
     width: 100%;
     position: fixed;
     z-index: 100;
+    display: none;
 }
 
 /*================preloader end================*/
