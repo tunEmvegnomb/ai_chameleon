@@ -56,6 +56,8 @@ async function load_gif() {
     const inner_card = document.getElementById("inner_card")
     console.log('inner card : ' + inner_card)
     inner_card.style.backgroundImage = "url(" + path + ")"
+    const download = document.getElementById("download")
+    download.href = path
     // 의사코드 작성
     // 뿌려주기
     // 스테이터스 코드 활용 해서 작업

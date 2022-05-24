@@ -15,12 +15,20 @@ cors = CORS(app, resources={r"*": {"origins": "*"}})
 client = MongoClient('localhost', 27017)
 db = client.chameleon
 
+recent_selfie_id = None
+
 
 @app.route('/')
 def home():
     return render_template('main.html')
 
 # recent_selfie_id = str(db.selfie.find_one()['_id'])
+
+
+@app.route('/result')
+def result_page():
+
+    return render_template('result.html')
 
 
 @app.route('/loadimage', methods=['GET'])
@@ -63,7 +71,7 @@ def save_selfie():
     filename = f'{timestamp}.{extension}'
     print(f'filename : {filename}')
 
-    save_to = f'static/image/selfie/{filename}'
+    save_to = f'./backend/static/image/selfie/{filename}'
     file_receive.save(save_to)
 
     doc_selfie = {
@@ -71,6 +79,7 @@ def save_selfie():
     }
 
     db.selfie.insert_one(doc_selfie)
+    model.make_gif(filename)
 
     global recent_selfie_id
     recent_selfie_id = str(db.selfie.find_one(
