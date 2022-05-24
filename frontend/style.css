@@ -195,7 +195,7 @@ form>label {
 
 /*================preloader start================*/
 #preloader {
-    background: #000 url(preloader.gif) no-repeat center;
+    background: rgb(0, 0, 0) url(preloader.gif) no-repeat center;
     background-size: 15%;
     height: 100vh;
     width: 100%;
