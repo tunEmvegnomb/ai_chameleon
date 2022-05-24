@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import os
 from flask_cors import CORS
 import model
+import emotion_sq
 
 
 app = Flask(__name__)
