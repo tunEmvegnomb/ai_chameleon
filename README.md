@@ -3,7 +3,8 @@
 
 Welcome to the teamf4_mlp wiki!
 
-![LOGO_F4](https://user-images.githubusercontent.com/97969957/169030905-1288d3f6-5cd7-4eaf-89a1-e7101175590f.png)
+![169920346-d6bff1f3-23b5-4cbb-bff1-1c31492e0532](https://user-images.githubusercontent.com/97969957/169922205-7db05bcc-9268-40c6-a816-6da3f0e8ef3b.png)
+
 
 내일배움캠프 AI 2기 팀 F4의 프로젝트 기록을 담은 깃허브 위키페이지입니다!
 
