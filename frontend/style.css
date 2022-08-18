@@ -189,11 +189,6 @@ body {
 .inner_card {
     width: 425px;
     height: 500px;
-    /* background-color: rgb(254, 243, 250); */
-    /* background-image: -moz-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
-    background-image: -webkit-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%);
-    background-image: -ms-linear-gradient(0deg, #ff4242 0%, #88f3ff 100%); */
-    /* border: 2px #F8019D solid; */
     margin: 17px 0 10px 20px;
     background-image: url(../frontend/static/img/f4logo.png);
     background-position: center;
@@ -223,10 +218,6 @@ body {
     border-radius: 3px;
 }
 
-/* .inner_card:nth-child(2) {
-    color: pink;
-    top: 50%;
-} */
 /*================PAGE BOTTOM END================*/
 
 form {
