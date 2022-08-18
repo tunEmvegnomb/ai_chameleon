@@ -59,7 +59,6 @@ def make_gif(filename):
             std=[0.229, 0.224, 0.225]
         )
     ])
-    print(trf(img).shape)
 
     input_img = trf(img).unsqueeze(0)
 
@@ -85,7 +84,6 @@ def make_gif(filename):
     for i in pallete:
         img_out = seg_map(out, i)
         img_list.append(img_out)
-    print("gif이전")
     imageio.mimsave(
         f"../backend/static/image/gif/{current_time}.gif", img_list, fps=3)
 
