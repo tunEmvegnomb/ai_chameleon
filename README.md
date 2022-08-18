@@ -25,6 +25,11 @@ Welcome to the teamf4_mlp wiki!
 - 지정된 여러 개의 색 팔레트 이미지를 모두 출력하여 gif로 생성합니다.
 - 생성된 사진은 다운로드하는 것으로 소장할 수 있습니다!
 
+# 결과 이미지
+![20220525095454](https://user-images.githubusercontent.com/61997714/185298555-7ed5da96-e755-41f9-8317-b7cba6dd076a.gif)
+![20220525205910](https://user-images.githubusercontent.com/61997714/185298563-0776871d-d615-4967-b875-09c7240d93d8.gif)
+![20220525210318](https://user-images.githubusercontent.com/61997714/185298583-22b37e51-3fc4-4c50-9f93-95583876e16f.gif)
+
 # 기술 스택
 
 ## 백엔드
